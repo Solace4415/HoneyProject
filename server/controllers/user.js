@@ -51,7 +51,7 @@ export const signup = async (req, res) => {
       ),
     }).save();
 
-    const verifyUrl = `http://localhost:3000/user/verify/${result._id}/${token.token}`;
+    const verifyUrl = `https://t-honey.netlify.app/user/verify/${result._id}/${token.token}`;
 
     const message = `
       <p>
@@ -158,7 +158,7 @@ export const forgotPassword = async (req, res) => {
   const resetToken = user.getResetPasswordToken();
   await user.save({ validateBeforeSave: false });
 
-  const resetUrl = `http://localhost:3000/user/resetpassword/${resetToken}`;
+  const resetUrl = `https://t-honey.netlify.app/user/resetpassword/${resetToken}`;
 
   const message = `
       <p>
