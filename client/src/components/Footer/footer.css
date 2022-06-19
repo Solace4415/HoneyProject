@@ -59,14 +59,14 @@
 }
 
 .app__footer-headtext{
-    font-family: var(--font-base);
-    color: var(--color-white);
+    font-family: var(--font-family);
     font-weight: 400;
     letter-spacing: 0.04em;
     text-transform: capitalize;
     font-size: 32px;
     line-height: 41.6px;
     margin-bottom: 1rem;
+    color: var(--color-text);
 }
 
 .footer__copyright {
@@ -74,9 +74,6 @@
     margin-top:3rem;
 }
 
-.ops{
-    color:#fff
-}
 
 @media screen and (min-width: 2000px) {
     .app__footer-headtext {
@@ -95,8 +92,12 @@
     .app__footer-links_contact,
     .app__footer-links_logo,
     .app__footer-links_work {
-        margin: 2rem 0;
+        margin: 1rem 0;
         width: 100%;
+    }
+
+    .footer__copyright {
+        margin-top: 1rem;
     }
 
     .h1 {
@@ -117,10 +118,9 @@
         font-size: 35px;
    }
 
-   
-    .app__footer-links_work{
-        margin: 0;
-    }
+   .app__footer-headtext{
+        font-size: 25px;
+   }
 }
 
 @media screen and (max-width: 350px) {

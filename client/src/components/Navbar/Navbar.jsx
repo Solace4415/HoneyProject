@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { FiFacebook, FiTwitter, FiInstagram } from "react-icons/fi";
-import { MdShoppingCart, MdAccountBox,  MdOutlineRestaurantMenu } from "react-icons/md";
+import {
+  MdShoppingCart,
+  MdAccountBox,
+  MdOutlineRestaurantMenu,
+} from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { Link, useNavigate,  useLocation } from "react-router-dom";
-import {useDispatch} from "react-redux"
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import decode from "jwt-decode";
 import { LOGOUT } from "../../constant/actionTypes";
 
@@ -13,7 +17,7 @@ import "./navbar.css";
 
 const Navbar = ({ user, setUser }) => {
   const location = useLocation();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [toggleMenu, setToggleMenu] = useState(false);
 
@@ -43,7 +47,9 @@ const Navbar = ({ user, setUser }) => {
       </div>
       <div className="nav-details">
         <div className="nav-details-bar">
-            <h2 className="nav-details-logo" onClick={() => navigate("/")}>HONEY</h2>
+          <h2 className="nav-details-logo" onClick={() => navigate("/")}>
+            HONEY
+          </h2>
         </div>
         <form className="form">
           <input
@@ -82,25 +88,25 @@ const Navbar = ({ user, setUser }) => {
           </Badge>
         </div>
         <div className="nav-smallscreen">
-        <GiHamburgerMenu
-          color= "#FFA500"
-          fontSize={30}
-          margin={0}
-          padding={0}
-          onClick={() => {
-            setToggleMenu(true);
-          }}
-        />
+          <GiHamburgerMenu
+            color="#FFA500"
+            fontSize={30}
+            margin={0}
+            padding={0}
+            onClick={() => {
+              setToggleMenu(true);
+            }}
+          />
 
-        {toggleMenu && (
-          <div className="nav-smallscreen-overlay">
-            <MdOutlineRestaurantMenu
-              fontSize={27}
-              className="overlay__close"
-              onClick={() => {
-                setToggleMenu(false);
-              }}
-            />
+          {toggleMenu && (
+            <div className="nav-smallscreen-overlay">
+              <MdOutlineRestaurantMenu
+                fontSize={27}
+                className="overlay__close"
+                onClick={() => {
+                  setToggleMenu(false);
+                }}
+              />
               <form className="smallscreen-form">
                 <input
                   className="nav-searchbar"
@@ -132,7 +138,9 @@ const Navbar = ({ user, setUser }) => {
                 </div>
 
                 <Badge badgeContent="1" color="secondary" overlap="rectangular">
-                  <MdShoppingCart />
+                  <Link to={user ? "/cart" : "/login"}>
+                    <MdShoppingCart />
+                  </Link>
                 </Badge>
               </div>
             </div>

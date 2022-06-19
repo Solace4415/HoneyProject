@@ -4,6 +4,7 @@ import NaijaStates from "naija-state-local-government";
 import { useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { signin, signup } from "../../actions/auth";
+import Spinner from "../../container/Spinner/Spinner";
 
 import "./register.css";
 
@@ -24,6 +25,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   const [register, setRegister] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [active, setActive] = useState("1");
   const [formData, setFormData] = useState(initialState);
 
@@ -34,13 +36,20 @@ const Register = () => {
 
   const states = NaijaStates.states();
 
+  if (isLoading) return <Spinner />;
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // setIsLoading(true);
+
     if (register) {
       dispatch(signup(formData, navigate));
+
+      setIsLoading(true);
     } else {
       dispatch(signin(formData, navigate));
+      setIsLoading(true);
     }
   };
 
