@@ -28,6 +28,7 @@ const Register = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [active, setActive] = useState("1");
   const [formData, setFormData] = useState(initialState);
+  const [error, setError] = useState(null);
 
   const handleClick = (e) => {
     setActive(e.target.id);
@@ -41,16 +42,13 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // setIsLoading(true);
-
     if (register) {
-      dispatch(signup(formData, navigate));
-
-      setIsLoading(true);
+      dispatch(signup(formData, navigate, setError));
     } else {
-      dispatch(signin(formData, navigate));
-      setIsLoading(true);
+      dispatch(signin(formData, navigate, setError));
     }
+
+  
   };
 
   const handleChange = (e) => {
@@ -60,7 +58,11 @@ const Register = () => {
   return (
     <Container component="main" maxWidth="sm" className="register">
       <p className="reg-p">{register ? "Register" : "Login"}</p>
-
+      {error && (
+        <div className="reg-error">
+          <p>{error}</p>
+        </div>
+      )}
       <form className="register-form" onSubmit={handleSubmit}>
         <div className="regg">
           <p

@@ -17,6 +17,19 @@
     font-family: var(--font-family);
 }
 
+.reg-error {
+    background: #ffb3b2;
+    width: 100%;;
+    margin-bottom: 2rem;
+}
+
+.reg-error p {
+    font-family: var(--font-family);
+    color: black;
+    padding: 10px 0;
+    text-align: center;
+}
+
 .reg-bar {
    
     border: 1px solid #f7f7f7;
