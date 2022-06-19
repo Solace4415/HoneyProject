@@ -38,8 +38,8 @@
     cursor: pointer;
     font-weight: 600;
     font-size: 30px;
-    line-height: 130%;
     text-align: center;
+    padding-top: 0.5rem;
     letter-spacing: 0.04em;
     text-transform: uppercase;
 }

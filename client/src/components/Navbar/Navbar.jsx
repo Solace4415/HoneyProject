@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FiFacebook, FiTwitter, FiInstagram } from "react-icons/fi";
 import { MdShoppingCart, MdAccountBox,  MdOutlineRestaurantMenu } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { Link } from "react-router-dom";
-import { useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate,  useLocation } from "react-router-dom";
 import {useDispatch} from "react-redux"
 import decode from "jwt-decode";
 import { LOGOUT } from "../../constant/actionTypes";
@@ -44,9 +43,7 @@ const Navbar = ({ user, setUser }) => {
       </div>
       <div className="nav-details">
         <div className="nav-details-bar">
-          <Link to="/">
-            <h2 className="nav-details-logo">HONEY</h2>
-          </Link>
+            <h2 className="nav-details-logo" onClick={() => navigate("/")}>HONEY</h2>
         </div>
         <form className="form">
           <input

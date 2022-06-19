@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "http://localhost:5000" });
+const API = axios.create({ baseURL: "https://honey-project-app.herokuapp.com" });
 
 
 export const signIn = (formData) => API.post("/user/signin", formData);
